@@ -4,40 +4,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody playerRb;
-    private GameObject focalPoint;
-    public float Speed = 5.0f;
-    public bool hasPowerup = false;
+    public float horizontalInput;
+    public float speed = 10.0f;
+    public float xRange = 10.0f;
+
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>(); 
-        //focalPoint = GameObject.Find("Focal Point");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        float forwardInput = Input.GetAxis("Vertical");
-
-        playerRb.AddForce(focalPoint.transform.forward * forwardInput * Speed);
-    }
-     private void OnTriggerEnter(Collider other)
-     {
-        if(other.CompareTag("Powerup"))
+        if (transform.position.x < -xRange)
         {
-            hasPowerup = true;   
-            Destroy(other.gameObject); 
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
-     }
-    
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Enemy") && hasPowerup)
+
+        if (transform.position.x > xRange)
         {
-            Debug.Log("Collied with: " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
+
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
     }
-
 }
