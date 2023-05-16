@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    private float spawnRange = 9.0f;
+    public GameObject[] animalPrefabs;
+    private float spawnRangeX = 20;
+    private float spawnPosZ = 20;
+    private float startDelay = 2;
+    private float spawnInterval = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(enemyPrefab, GenerateSpwanPosition(), enemyPrefab.transform.rotation);
+        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-   private Vector3 GenerateSpwanPosition()
-   {
-     float spawnPosX = Random.Range(-spawnRange, spawnRange);
-        float spawnPosZ = Random.Range(-spawnRange, spawnRange);
+    void SpawnRandomAnimal()
+    {
+        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
 
-        Vector3 randomPos = new Vector3(spawnPosX , 0 ,spawnPosZ);
-
-        return randomPos;
-   }
-
+        Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+    }
 }
