@@ -1629,10 +1629,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalPrefabs:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 846953970}
 =======
   - {fileID: 9832554}
   - {fileID: 0}
+=======
+  - {fileID: 9832554}
+>>>>>>> 41ec3163291b426bd9ea3c06e00fc9b41e82cca0
   - {fileID: 0}
 >>>>>>> 41ec3163291b426bd9ea3c06e00fc9b41e82cca0
 --- !u!4 &1186991904
