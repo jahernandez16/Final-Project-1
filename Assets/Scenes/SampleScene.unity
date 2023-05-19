@@ -834,7 +834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.39728287, y: -0.23294361, z: 0.10766676, w: 0.8810854}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 1.1, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1176,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030339254823556, guid: 48b7498965b22f04cb64325a0055cd4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.24
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 4030339254823556, guid: 48b7498965b22f04cb64325a0055cd4a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1489,6 +1489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc4a62d0685e4393967e36a99551461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalInput: 0
+  speed: 10
+  xRange: 10
+  projectilePrefab: {fileID: 0}
 --- !u!4 &1498457883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 471828, guid: 19682540d8a014522a319b1cf788aee2, type: 3}
